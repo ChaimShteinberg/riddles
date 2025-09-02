@@ -1,5 +1,6 @@
 import { useState } from "react";
 import FormSection from "../components/FormSection";
+import { Link } from "react-router";
 
 function Login() {
   const [username, setUsername] = useState(null);
@@ -24,7 +25,9 @@ function Login() {
           type="password"
           setInput={setPassword}
         />
-        <button>submit</button>
+        <Link to="/userMenu" className="btn">
+          Submit
+        </Link>
       </form>
     </main>
   );
