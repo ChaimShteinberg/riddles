@@ -1,9 +1,10 @@
+import "../styles/Header.css"
+
 function Header() {
   return (
     <header>
-      <h1>
-        <img src="src/assets/icon.riddles.png" alt="logo riddles" /> Riddles
-      </h1>
+      <img src="src/assets/icon.riddles.png" alt="logo riddles" />
+      <h1>Riddles</h1>
     </header>
   );
 }
