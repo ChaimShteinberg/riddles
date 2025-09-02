@@ -7,9 +7,9 @@ function Home() {
       <h1>Riddle Game</h1>
       <p>Challenge Your Mind with Epic Riddles</p>
       <nav>
-        <button className="btn">Play</button>
         <Link to="/login" className="btn">Login</Link>
         <Link to="/register" className="btn">Register</Link>
+        <Link to="/play" className="btn">Play</Link>
       </nav>
     </main>
   );
