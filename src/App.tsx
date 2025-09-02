@@ -6,6 +6,7 @@ import Login from "./pages/Login.tsx";
 import Register from "./pages/Register.tsx";
 import Play from "./pages/Play.tsx";
 import UserMenu from "./pages/UserMenu.tsx";
+import AdminMenu from "./pages/AdminMenu.tsx";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/play" element={<Play />} />
           <Route path="/userMenu" element={<UserMenu />} />
+          <Route path="/adminMenu" element={<AdminMenu />} />
         </Routes>
       </BrowserRouter>
     </>
