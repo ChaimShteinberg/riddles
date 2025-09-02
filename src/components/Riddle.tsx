@@ -3,7 +3,7 @@ function Riddle() {
     <section>
       <label htmlFor="answer">Riddle</label>
       <input type="text" id="answer" />
-      <button>submit</button>
+      <button className="btn">submit</button>
     </section>
   );
 }
