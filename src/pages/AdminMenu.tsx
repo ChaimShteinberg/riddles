@@ -13,6 +13,7 @@ function AdminMenu() {
       <button className="btn">add reddle</button>
       <article>
         <AdminRiddle level="easy" name="Addition" taskDescription="What is 7 + 6." correctAnswer="13" hint="Think of 7 plus something small."/>
+        <AdminRiddle level="easy" name="Addition" taskDescription="What is 7 + 6." correctAnswer="13" hint="Think of 7 plus something small."/>
       </article>
     </main>
   );
