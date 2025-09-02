@@ -1,4 +1,5 @@
-import "../styles/Home.css"
+import { Link } from "react-router";
+import "../styles/Home.css";
 
 function Home() {
   return (
@@ -6,9 +7,9 @@ function Home() {
       <h1>Riddle Game</h1>
       <p>Challenge Your Mind with Epic Riddles</p>
       <nav>
-        <button>Play</button>
-        <button>Login</button>
-        <button>Register</button>
+        <button className="btn">Play</button>
+        <Link to="/login" className="btn">Login</Link>
+        <button className="btn">Register</button>
       </nav>
     </main>
   );

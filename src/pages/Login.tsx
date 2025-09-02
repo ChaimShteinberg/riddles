@@ -1,4 +1,4 @@
-import FormSection from "./FormSection";
+import FormSection from "../components/FormSection";
 
 function Login() {
   return (
@@ -7,6 +7,7 @@ function Login() {
       <form>
         <FormSection label="Username" id="Username" type="text" />
         <FormSection label="Password" id="Password" type="password" />
+        <button>submit</button>
       </form>
     </main>
   );

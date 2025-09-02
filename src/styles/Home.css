@@ -17,14 +17,14 @@ main p {
 }
 
 main nav {
-    margin: 20px;
+  margin: 20px;
   display: flex;
   gap: 20px;
   justify-content: center;
 }
 
-main nav button {
-  background-color: #ffffff2b;
+main nav .btn {
+  background-color: #ffffff30;
   min-width: 100px;
   padding: 12px 20px;
   border: none;
@@ -32,6 +32,6 @@ main nav button {
   font-weight: bold;
   cursor: pointer;
   font-size: 14px;
-  color:#0e258f ;
+  color: #0e258f;
   border: 1px solid #667eea;
 }
