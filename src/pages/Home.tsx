@@ -9,7 +9,7 @@ function Home() {
       <nav>
         <button className="btn">Play</button>
         <Link to="/login" className="btn">Login</Link>
-        <button className="btn">Register</button>
+        <Link to="/register" className="btn">Register</Link>
       </nav>
     </main>
   );
