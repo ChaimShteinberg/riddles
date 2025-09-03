@@ -1,10 +1,11 @@
 import "../styles/Login.css";
 import { useState } from "react";
 import FormSection from "../components/FormSection";
-import { useParams } from "react-router";
-import { loginApi } from "../api/player.ts";
+import { useNavigate, useParams } from "react-router";
+import { loginApi, registerApi } from "../api/player.ts";
 
 function Login() {
+  const navigate = useNavigate();
   let params = useParams();
 
   const [currentForm, setCurrentForm] = useState(params.form || "Login");
@@ -14,8 +15,22 @@ function Login() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (currentForm === "Login") {
+      const result = await loginApi({ username: username, password: password });
+      if (result.bool) {
+        navigate("/userMenu");
+      } else {
+        alert(result.message);
+      }
     } else if (currentForm === "Register") {
-      await loginApi({ username: username, password: password });
+      const result = await registerApi({
+        username: username,
+        password: password,
+      });
+      if (result.bool) {
+        navigate("/userMenu");
+      } else {
+        alert(result.message);
+      }
     }
   };
 
