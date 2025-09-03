@@ -3,7 +3,6 @@ import "./App.css";
 import Home from "./pages/Home.tsx";
 import Header from "./components/Header.tsx";
 import Login from "./pages/Login.tsx";
-import Register from "./pages/Register.tsx";
 import Play from "./pages/Play.tsx";
 import UserMenu from "./pages/UserMenu.tsx";
 import AdminMenu from "./pages/AdminMenu.tsx";
@@ -12,11 +11,10 @@ function App() {
   return (
     <>
       <BrowserRouter>
-      <Header />
+        <Header />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
+          <Route path="/loginForm/:form" element={<Login />} />
           <Route path="/play" element={<Play />} />
           <Route path="/userMenu" element={<UserMenu />} />
           <Route path="/adminMenu" element={<AdminMenu />} />

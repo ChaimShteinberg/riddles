@@ -1,0 +1,12 @@
+section {
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+}
+
+input {
+  padding: 5px;
+  background-color: #ffffff30;
+  border: 1px solid #764ba2;
+  border-radius: 5px;
+}
