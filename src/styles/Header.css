@@ -1,18 +1,23 @@
-header{
-    margin: 20px;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    position: fixed;
+header {
+  margin: 20px;
+  position: fixed;
 }
 
-header img{
-    width: 50px;
-    height: 50px;
-    filter: invert(1);
+header img {
+  width: 50px;
+  height: 50px;
+  filter: invert(1);
 }
 
-header h1{
-    font-size: 40px;
-    font-weight: 700;
+header h1 {
+  font-size: 40px;
+  font-weight: 700;
+}
+
+header a {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  color: #dccec4;
+  text-decoration: none;
 }
