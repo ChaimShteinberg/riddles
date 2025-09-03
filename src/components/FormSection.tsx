@@ -1,3 +1,5 @@
+import "../styles/FormSection.css"
+
 function FormSection(props: {
   label: string;
   id: string;

@@ -7,10 +7,10 @@ function Home() {
       <h1>Riddle Game</h1>
       <p>Challenge Your Mind with Epic Riddles</p>
       <nav>
-        <Link to="/login" className="btn">
+        <Link to="/loginForm/Login" className="btn">
           Login
         </Link>
-        <Link to="/register" className="btn">
+        <Link to="/loginForm/Register" className="btn">
           Register
         </Link>
         <Link to="/play" className="btn">
