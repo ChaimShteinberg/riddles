@@ -1,13 +1,24 @@
 import "../styles/Login.css";
 import { useState } from "react";
 import FormSection from "../components/FormSection";
-import { Link, useParams } from "react-router";
+import { useParams } from "react-router";
+import { loginApi } from "../api/player.ts";
 
 function Login() {
   let params = useParams();
-  const [currentForm, setCurrentForm] = useState(params.form);
+
+  const [currentForm, setCurrentForm] = useState(params.form || "Login");
   const [username, setUsername] = useState(null);
   const [password, setPassword] = useState(null);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (currentForm === "Login") {
+    } else if (currentForm === "Register") {
+      await loginApi({ username: username, password: password });
+    }
+  };
+
   return (
     <main id="loginForm">
       <nav id="form-toggle">
@@ -25,11 +36,7 @@ function Login() {
         </button>
       </nav>
 
-      <form
-        onSubmit={(e) => {
-          e.preventDefault(), console.log(username, password);
-        }}
-      >
+      <form onSubmit={handleSubmit}>
         <FormSection
           label="Username"
           id="Username"
@@ -44,9 +51,14 @@ function Login() {
           setInput={setPassword}
         />
 
-        <Link to="/userMenu" className={username && password ? "btn submit" : "btn submitTransparent"}>
+        <button
+          type="submit"
+          className={
+            username && password ? "btn submit" : "btn submitTransparent"
+          }
+        >
           Submit
-        </Link>
+        </button>
       </form>
     </main>
   );
