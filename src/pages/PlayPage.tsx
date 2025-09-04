@@ -5,15 +5,21 @@ import { useState } from "react";
 
 function Play() {
   const [type, setType] = useState("level");
-  const [reddles, setReddles] = useState([]);
+  const [riddles, setRiddles] = useState([]);
+  const [riddleNum, setReddleNam] = useState(0);
 
   return (
     <main id="playMain">
       <h1 id="playHeader">Play</h1>
       {type === "level" ? (
-        <Level setType={setType} setReddles={setReddles} />
+        <Level setType={setType} setReddles={setRiddles} />
       ) : (
-        <Riddle />
+        <Riddle
+          name={riddles[riddleNum]["name"]}
+          taskDescription={riddles[riddleNum]["taskDescription"]}
+          correctAnswer={riddles[riddleNum]["correctAnswer"]}
+          hint={riddles[riddleNum]["hint"]}
+        />
       )}
     </main>
   );

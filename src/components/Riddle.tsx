@@ -1,9 +1,18 @@
-function Riddle() {
+function Riddle(props: {
+  name: string;
+  taskDescription: string;
+  correctAnswer: string;
+  hint: string;
+}) {
   return (
     <section>
-      <label htmlFor="answer">Riddle</label>
+      <h3>{props.name}</h3>
+      <p>{props.taskDescription}</p>
       <input type="text" id="answer" />
-      <button className="btn">submit</button>
+      <section id="buttonSection">
+        <button className="btn">Hint</button>
+        <button className="btn">submit</button>
+      </section>
     </section>
   );
 }
