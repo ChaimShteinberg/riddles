@@ -21,6 +21,7 @@ function Play() {
           hint={riddles[riddleNum]["hint"]}
           setReddleNum={setReddleNum}
           riddleNum={riddleNum}
+          sumRiddle={riddles.length}
         />
       )}
     </main>

@@ -1,16 +1,15 @@
 import { useRef, useState } from "react";
+import type { riddleInterface } from "../interface/riddle.interface.tsx";
+import { handleAnswer } from "../services/ansverService.ts";
 
-function Riddle(props: {
-  name: string;
-  taskDescription: string;
-  correctAnswer: string;
-  hint: string;
-  setReddleNum: Function;
-  riddleNum: number;
-}) {
+function Riddle(props: riddleInterface) {
   const answer = useRef("");
   const [hint, setHint] = useState(false);
-  return (
+  const [finish, setFinish] = useState(false);
+
+  return finish ? (
+    <h3>You have successfully completed the game!</h3>
+  ) : (
     <section>
       <h3>{props.name}</h3>
       <p>{props.taskDescription}</p>
@@ -21,27 +20,23 @@ function Riddle(props: {
           answer.current = e.target.value;
         }}
       />
-      <section id="buttonSection">
-        {hint ? (
-          <p>{props.hint}</p>
-        ) : (
-          <button className="btn" onClick={() => setHint(true)}>
-            Hint
-          </button>
-        )}
-        <button
-          className="btn"
-          onClick={() => {
-            answer.current === props.correctAnswer ? (
-              props.setReddleNum(props.riddleNum + 1)
-            ) : (
-              alert("Wrong, Try again")
-            );
-          }}
-        >
-          submit
+
+      {hint ? (
+        <p>{props.hint}</p>
+      ) : (
+        <button className="btn" onClick={() => setHint(true)}>
+          Hint
         </button>
-      </section>
+      )}
+
+      <button
+        className="btn"
+        onClick={() => {
+          handleAnswer(props, answer.current, setFinish);
+        }}
+      >
+        submit
+      </button>
     </section>
   );
 }
