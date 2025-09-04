@@ -2,37 +2,15 @@ import "../styles/Login.css";
 import { useState } from "react";
 import FormSection from "../components/FormSection";
 import { useNavigate, useParams } from "react-router";
-import { loginApi, registerApi } from "../api/player.ts";
+import { handleSubmit } from "../services/authService";
 
 function Login() {
-  const navigate = useNavigate();
   let params = useParams();
 
+  const navigate = useNavigate();
   const [currentForm, setCurrentForm] = useState(params.form || "Login");
   const [username, setUsername] = useState(null);
   const [password, setPassword] = useState(null);
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    if (currentForm === "Login") {
-      const result = await loginApi({ username: username, password: password });
-      if (result.bool) {
-        navigate("/userMenu");
-      } else {
-        alert(result.message);
-      }
-    } else if (currentForm === "Register") {
-      const result = await registerApi({
-        username: username,
-        password: password,
-      });
-      if (result.bool) {
-        navigate("/userMenu");
-      } else {
-        alert(result.message);
-      }
-    }
-  };
 
   return (
     <main id="loginForm">
@@ -51,7 +29,11 @@ function Login() {
         </button>
       </nav>
 
-      <form onSubmit={handleSubmit}>
+      <form
+        onSubmit={async (e) =>
+          handleSubmit(e, { username, password }, currentForm, navigate)
+        }
+      >
         <FormSection
           label="Username"
           id="Username"
