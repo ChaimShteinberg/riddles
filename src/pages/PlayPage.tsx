@@ -15,10 +15,7 @@ function Play() {
         <Level setType={setType} setReddles={setRiddles} />
       ) : (
         <Riddle
-          name={riddles[riddleNum]["name"]}
-          taskDescription={riddles[riddleNum]["taskDescription"]}
-          correctAnswer={riddles[riddleNum]["correctAnswer"]}
-          hint={riddles[riddleNum]["hint"]}
+          riddle={riddles[riddleNum]}
           setReddleNum={setReddleNum}
           riddleNum={riddleNum}
           sumRiddle={riddles.length}

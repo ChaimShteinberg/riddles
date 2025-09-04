@@ -1,11 +1,11 @@
-import type { riddleInterface } from "../interface/riddle.interface.tsx";
+import type { RiddlePlayInterface } from "../interface/riddlePlay.interface.tsx";
 
 export function handleAnswer(
-  props: riddleInterface,
+  props: RiddlePlayInterface,
   answer: string,
   setFinish: Function
 ) {
-  if (answer === props.correctAnswer) {
+  if (answer === props.riddle.correctAnswer) {
     if (props.riddleNum === props.sumRiddle - 1) {
       setFinish(true);
     } else {

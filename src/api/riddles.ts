@@ -7,3 +7,12 @@ export async function getRiddlersByLevelApi(level: string) {
   const riddles = await res.json();
   return riddles;
 }
+
+export async function getAllRiddlesApi() {
+  await new Promise((resolve) => setTimeout(resolve, 1000));
+  const res = await fetch(`${serverPath}/riddles/getAll`, {
+    credentials: "include",
+  });
+  const riddles = await res.json();
+  return riddles;
+}
