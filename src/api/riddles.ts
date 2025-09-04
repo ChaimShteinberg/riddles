@@ -16,3 +16,11 @@ export async function getAllRiddlesApi() {
   const riddles = await res.json();
   return riddles;
 }
+
+export async function deleteRiddleApi(id: string) {
+  const res = await fetch(`${serverPath}/riddles/delete/${id}`, {
+    method: "DELETE",
+    credentials: "include",
+  });
+  return await res.text();
+}
