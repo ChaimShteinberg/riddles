@@ -1,7 +1,8 @@
 import "../styles/ReadRiddles.css";
 import { useEffect, useState } from "react";
-import { deleteRiddleApi, getAllRiddlesApi } from "../api/riddles.ts";
+import { getAllRiddlesApi } from "../api/riddles.ts";
 import type { RiddleInterface } from "../interface/riddle.interface.tsx";
+import { deleteRiddle } from "../services/riddlesServiec.ts";
 
 function ReadRiddles() {
   const [riddles, serRiddles] = useState([]);
@@ -15,6 +16,7 @@ function ReadRiddles() {
 
   return (
     <>
+    <button className="btn" onClick={()=>{}}>Add new riddle</button>
       <table>
         <thead>
           <tr>
@@ -32,15 +34,7 @@ function ReadRiddles() {
                 <button
                   className="material-symbols-outlined"
                   onClick={() => {
-                    async function deleteRiddle() {
-                      const result = await deleteRiddleApi(riddle.id);
-                      result === "1"
-                        ? setRender(!render)
-                        : alert(
-                            "You do not have permission to perform this action"
-                          );
-                    }
-                    deleteRiddle();
+                    deleteRiddle(riddle.id, setRender, render);
                   }}
                 >
                   delete

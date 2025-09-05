@@ -17,7 +17,6 @@ function Home() {
           Play
         </Link>
       </nav>
-      <Link to="/adminMenu">Admin</Link>
     </main>
   );
 }
