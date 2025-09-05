@@ -11,7 +11,7 @@ function ReadRiddles() {
       serRiddles(await getAllRiddlesApi());
     }
     getRiddles();
-  });
+  }, [render]);
 
   return (
     <>
@@ -33,10 +33,14 @@ function ReadRiddles() {
                   className="material-symbols-outlined"
                   onClick={() => {
                     async function deleteRiddle() {
-                      await deleteRiddleApi(riddle.id);
+                      const result = await deleteRiddleApi(riddle.id);
+                      result === "1"
+                        ? setRender(!render)
+                        : alert(
+                            "You do not have permission to perform this action"
+                          );
                     }
                     deleteRiddle();
-                    setRender(!render);
                   }}
                 >
                   delete
