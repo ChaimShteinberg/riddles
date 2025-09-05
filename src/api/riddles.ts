@@ -20,6 +20,7 @@ export async function getAllRiddlesApi() {
 }
 
 export async function addRiddleApi(newRiddle: RiddleInterface) {
+  console.log(newRiddle)
   const res = await fetch(`${serverPath}/riddles/create`, {
     method: "POST",
     body: JSON.stringify(newRiddle),

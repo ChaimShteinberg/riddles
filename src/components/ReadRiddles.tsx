@@ -3,10 +3,12 @@ import { useEffect, useState } from "react";
 import { getAllRiddlesApi } from "../api/riddles.ts";
 import type { RiddleInterface } from "../interface/riddle.interface.tsx";
 import { deleteRiddle } from "../services/riddlesServiec.ts";
+import AddRiddle from "./AddRiddle.tsx";
 
 function ReadRiddles() {
   const [riddles, serRiddles] = useState([]);
   const [render, setRender] = useState(true);
+  const [create, setCreate] = useState(false);
   useEffect(() => {
     async function getRiddles() {
       serRiddles(await getAllRiddlesApi());
@@ -16,7 +18,13 @@ function ReadRiddles() {
 
   return (
     <>
-    <button className="btn" onClick={()=>{}}>Add new riddle</button>
+      {create ? (
+        <AddRiddle render={render} setRender={setRender} id={riddles.length} />
+      ) : (
+        <button className="btn" onClick={() => setCreate(true)}>
+          Create new riddle
+        </button>
+      )}
       <table>
         <thead>
           <tr>
